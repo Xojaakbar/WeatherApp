@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="@dimen/_10sdp"
+        tools:listitem="@layout/item_horizontal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recycler_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:listitem="@layout/item_vertical"
+        tools:itemCount="5"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:background="@drawable/recyclerview_bg"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_10sdp" />
+
+    <TextView
+        android:id="@+id/text_sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUNRISE"
+        android:textSize="16sp"
+        android:textColor="#E1E1E1"
+        android:fontFamily="@font/itim"
+        android:paddingLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/recycler_vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/text_sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUNSET"
+        android:textSize="16sp"
+        android:textColor="#E1E1E1"
+        android:fontFamily="@font/itim"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:paddingRight="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/recycler_vertical"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/text_sunrise_oclock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6:11AM"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:fontFamily="@font/itim"
+        app:layout_constraintTop_toBottomOf="@id/text_sunrise"
+        app:layout_constraintLeft_toLeftOf="@id/text_sunrise"/>
+
+    <TextView
+        android:id="@+id/text_sunset_oclock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9:54PM"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:fontFamily="@font/itim"
+        app:layout_constraintTop_toBottomOf="@id/text_sunrise"
+        app:layout_constraintRight_toRightOf="@id/text_sunset"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@ class MainScreen:Fragment(R.layout.screen_weather){
         viewModel.errorLiveData.observe(viewLifecycleOwner,errorLiveDataObserver)
         viewModel.loadingLiveData.observe(viewLifecycleOwner,loadingLiveDataObserver)
         viewModel.successLiveData.observe(viewLifecycleOwner,successLiveDataObserver)
-        viewModel.loadWeather("Tashkent",14)
+        viewModel.loadWeather("Moscow",7)
     }
     val errorLiveDataObserver = Observer<String>{
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
@@ -43,7 +43,6 @@ class MainScreen:Fragment(R.layout.screen_weather){
             binding.search.visibility =          invisible
             binding.settings.visibility =        invisible
             binding.textWeatherInfo.visibility = invisible
-
         }
         else{
             binding.progress.visibility = invisible
@@ -55,7 +54,6 @@ class MainScreen:Fragment(R.layout.screen_weather){
             binding.search.visibility =          visible
             binding.settings.visibility =        visible
             binding.textWeatherInfo.visibility = visible
-
         }
     }
     val successLiveDataObserver = Observer<ForecastRespons>{

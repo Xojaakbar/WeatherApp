@@ -21,7 +21,6 @@ class VerticalAdapter(private val list: List<Forecastday>): RecyclerView.Adapter
 
     override fun getItemCount(): Int = list.size
 
-
     inner class ViewHola(private val binding: ItemVerticalBinding):ViewHolder(binding.root){
         fun bind(dayData: uz.gita.luis.weatherapp.data.common.Day) {
             binding.gradus.text = "${dayData.maxtemp_c}°C"

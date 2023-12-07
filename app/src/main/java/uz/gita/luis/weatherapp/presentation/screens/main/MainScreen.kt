@@ -25,12 +25,13 @@ class MainScreen:Fragment(R.layout.screen_weather){
         viewModel.errorLiveData.observe(viewLifecycleOwner,errorLiveDataObserver)
         viewModel.loadingLiveData.observe(viewLifecycleOwner,loadingLiveDataObserver)
         viewModel.successLiveData.observe(viewLifecycleOwner,successLiveDataObserver)
-        viewModel.loadWeather("Moscow",7)
+        viewModel.loadWeather("Tashkent",7)
     }
-    val errorLiveDataObserver = Observer<String>{
+
+    private val errorLiveDataObserver = Observer<String>{
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
     }
-    val loadingLiveDataObserver = Observer<Boolean>{
+    private val loadingLiveDataObserver = Observer<Boolean>{
         val visible = View.VISIBLE
         val invisible = View.GONE
         if (it) {
@@ -56,7 +57,7 @@ class MainScreen:Fragment(R.layout.screen_weather){
             binding.textWeatherInfo.visibility = visible
         }
     }
-    val successLiveDataObserver = Observer<ForecastRespons>{
+    private val successLiveDataObserver = Observer<ForecastRespons>{
         binding.gradus.text = "${it.current.temp_c}°C"
         val url = "https:${it.current.condition.icon}"
         Glide.with(binding.root.context).load(url).into(binding.imgWeatherIcon)
@@ -66,6 +67,5 @@ class MainScreen:Fragment(R.layout.screen_weather){
         binding.backgroundImage.setImageResource(R.drawable.snow2)
         adapter = MainAdapter(it)
         binding.mainRecyclerview.adapter = adapter
-//        adapter.notifyDataSetChanged()
      }
     }
